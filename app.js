@@ -32,11 +32,6 @@ app.get('/map', (req, res) => {
   res.render('map');
 });
 
-app.get('/signup', (req, res) => {
-//from tutorial
-  res.render('signup');
-});
-
 app.get('/service/request', (req, res) => {
 //from tutorial
   res.render('request-service');
@@ -55,6 +50,16 @@ app.get('/service/cancel/:id', (req, res) => {
 app.get('/service/progress/:id', (req, res) => {
 //from tutorial
   res.render('progress-service');
+});
+
+app.get('/signup/worker', (req, res) => {
+//from tutorial
+  res.render('signup-worker');
+});
+
+app.get('/signup/user', (req, res) => {
+//from tutorial
+  res.render('signup-user');
 });
 
 app.get('/api/users', db.getUsers)
