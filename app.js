@@ -1,6 +1,7 @@
 const db = require('./queries')
 const express = require('express')
-const handlebars = require( 'express-handlebars');
+const handlebars = require( 'express-handlebars')
+const bodyParser = require('body-parser');
 
 
 const app = express()
@@ -14,13 +15,14 @@ layoutsDir: __dirname + '/views/layouts',
 }));
 
 app.use(express.static('public'))
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
 
 app.get('/', (req, res) => {
-//from tutorial
-  res.render('main', {layout : 'index'});
-});
-
-app.get('/home', (req, res) => {
 //from tutorial
   res.render('home');
 });
@@ -35,16 +37,31 @@ app.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-app.get('/service', (req, res) => {
+app.get('/service/request', (req, res) => {
 //from tutorial
-  res.render('service');
+  res.render('request-service');
 });
 
-app.get('/users', db.getUsers)
-app.get('/users/:id', db.getUserById)
-app.post('/users', db.createUser)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
+app.get('/service/view/:id', (req, res) => {
+//from tutorial
+  res.render('view-service');
+});
+
+app.get('/service/cancel/:id', (req, res) => {
+//from tutorial
+  res.render('cancel-service');
+});
+
+app.get('/service/progress/:id', (req, res) => {
+//from tutorial
+  res.render('progress-service');
+});
+
+app.get('/api/users', db.getUsers)
+app.get('/api/users/:id', db.getUserById)
+app.post('/api/users', db.createUser)
+app.put('/api/users/:id', db.updateUser)
+app.delete('/api/users/:id', db.deleteUser)
 
 
 

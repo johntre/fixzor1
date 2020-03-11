@@ -9,6 +9,45 @@
 body {
 	margin:  0;
 }
+.navbar {
+  margin-bottom: 0;
+  background-color: #2d2d30 !important;
+  border: 0;
+  font-size: 11px !important;
+  letter-spacing: 4px;
+  opacity: 0.9;
+}
+.navbar li a, .navbar .navbar-brand {
+  color: #d5d5d5 !important;
+}
+.button1 {
+  border-radius: 0;
+  background-color: #f8f8f8;
+  margin-top: 12px;
+  letter-spacing: 4px;
+  background-color: #2d2d30;
+  color: #d5d5d5 !important;
+  border: none;
+}
+.navbar-nav li a:hover {
+  color: white !important;
+}
+.navbar-nav li.active a {
+  color: white !important;
+  background-color: #f4511e !important;
+}
+
+/* .button {
+  background-color: #f4511e;
+  color: white !important;
+  border-radius: 10px;
+}
+.button:hover, .button:focus {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: black !important;
+  transition: .2s;
+} */
 .content {
 	width: 100%;
 	margin:  0 auto;
